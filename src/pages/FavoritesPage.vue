@@ -14,7 +14,7 @@
       </div>
 
       <div v-if="eventsStore.loading" class="favorites-page__state" aria-busy="true">
-        <LoadingSpinner size="3rem" />
+        <LoadingSpinner size="48px" />
         <p>{{ t('favorites.loading') }}</p>
       </div>
 

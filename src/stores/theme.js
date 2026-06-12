@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
 
-const STORAGE_KEY = 'eventus-theme'
+const STORAGE_KEY = 'portaberto-theme'
 const THEMES = ['dark', 'light']
 
 function getStoredTheme() {

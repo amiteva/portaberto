@@ -5,7 +5,7 @@ export const SUPPORTED_LOCALES = [
   { code: 'mk', label: 'Македонски', shortLabel: 'MK' }
 ]
 
-const STORAGE_KEY = 'eventus-locale'
+const STORAGE_KEY = 'portaberto-locale'
 
 const messages = {
   en: {
@@ -44,7 +44,7 @@ const messages = {
       eyebrow: 'Discover · Experience · Connect',
       titleLine1: 'Extraordinary',
       titleLine2: 'Events',
-      lead: 'From global conferences to exclusive galas — find and book experiences that inspire.',
+      lead: 'From global conferences to exclusive galas, find and book experiences that inspire.',
       browseEvents: 'Browse Events',
       bookVenue: 'Book a Venue',
       upcomingEvents: 'Upcoming Events',
@@ -89,11 +89,11 @@ const messages = {
         Symposium: 'Symposium'
       },
       sort: {
-        dateAsc: 'Date — Soonest',
-        dateDesc: 'Date — Latest',
-        priceAsc: 'Price — Low to High',
-        priceDesc: 'Price — High to Low',
-        nameAsc: 'Name — A to Z'
+        dateAsc: 'Date: Soonest',
+        dateDesc: 'Date: Latest',
+        priceAsc: 'Price: Low to High',
+        priceDesc: 'Price: High to Low',
+        nameAsc: 'Name: A to Z'
       }
     },
     eventsGrid: {
@@ -153,7 +153,7 @@ const messages = {
       eyebrow: 'Откриј · Доживеј · Поврзи се',
       titleLine1: 'Посебни',
       titleLine2: 'Настани',
-      lead: 'Од глобални конференции до ексклузивни гала настани — најди и резервирај искуства што инспирираат.',
+      lead: 'Од глобални конференции до ексклузивни гала настани, најди и резервирај искуства што инспирираат.',
       browseEvents: 'Разгледај настани',
       bookVenue: 'Резервирај простор',
       upcomingEvents: 'Претстојни настани',
@@ -198,11 +198,11 @@ const messages = {
         Symposium: 'Симпозиум'
       },
       sort: {
-        dateAsc: 'Датум — најскоро',
-        dateDesc: 'Датум — најдоцна',
-        priceAsc: 'Цена — ниска кон висока',
-        priceDesc: 'Цена — висока кон ниска',
-        nameAsc: 'Име — А до Ш'
+        dateAsc: 'Датум: најскоро',
+        dateDesc: 'Датум: најдоцна',
+        priceAsc: 'Цена: ниска кон висока',
+        priceDesc: 'Цена: висока кон ниска',
+        nameAsc: 'Име: А до Ш'
       }
     },
     eventsGrid: {

@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <!-- Scrollable track — mouse wheel + touch scroll -->
+    <!-- Scrollable track with mouse wheel and touch scroll -->
     <div
       ref="trackRef"
       :class="['reviews__track', { 'reviews__track--dragging': isDragging }]"
@@ -101,9 +101,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const reviews = [
   { id: 1, name: 'Sarah Johnson',  avatar: 'https://picsum.photos/seed/rev001/60/60', rating: 5, date: '2 weeks ago',  text: 'Absolutely outstanding event organization. The Grand Pavilion was pristine and the team was incredibly professional from start to finish.' },
   { id: 2, name: 'Marcus Chen',    avatar: 'https://picsum.photos/seed/rev002/60/60', rating: 5, date: '1 month ago',  text: 'Booked the Skyline Conference Center for our product launch. The AV setup was flawless and the staff anticipated every need. Our guests were thoroughly impressed.' },
-  { id: 3, name: 'Elena Vasquez',  avatar: 'https://picsum.photos/seed/rev003/60/60', rating: 4, date: '1 month ago',  text: 'Great venue options and a smooth booking process. The dedicated coordinator made the entire experience seamless. Would happily use Eventus again.' },
+  { id: 3, name: 'Elena Vasquez',  avatar: 'https://picsum.photos/seed/rev003/60/60', rating: 4, date: '1 month ago',  text: 'Great venue options and a smooth booking process. The dedicated coordinator made the entire experience seamless. Would happily use Portaberto again.' },
   { id: 4, name: "James O'Brien",  avatar: 'https://picsum.photos/seed/rev004/60/60', rating: 5, date: '2 months ago', text: 'The Meridian Hall is world-class. Hosted our annual summit here and everything went perfectly. Highly professional team throughout.' },
-  { id: 5, name: 'Priya Sharma',   avatar: 'https://picsum.photos/seed/rev005/60/60', rating: 5, date: '2 months ago', text: 'Third time using Eventus for our charity gala. Consistently excellent. The Azure Terrace looked magical and the team handled last-minute changes without any fuss.' },
+  { id: 5, name: 'Priya Sharma',   avatar: 'https://picsum.photos/seed/rev005/60/60', rating: 5, date: '2 months ago', text: 'Third time using Portaberto for our charity gala. Consistently excellent. The Azure Terrace looked magical and the team handled last-minute changes without any fuss.' },
   { id: 6, name: 'Thomas Müller',  avatar: 'https://picsum.photos/seed/rev006/60/60', rating: 5, date: '3 months ago', text: 'From inquiry to post-event follow-up, every touchpoint was handled with care. The Crystal Gallery was exactly as described.' },
   { id: 7, name: 'Aisha Nkosi',    avatar: 'https://picsum.photos/seed/rev007/60/60', rating: 5, date: '3 months ago', text: 'We hosted a 300-person gala at Heritage Ballroom and not a single detail was overlooked. The catering coordination and lighting setup exceeded every expectation.' },
   { id: 8, name: 'Laurent Dubois', avatar: 'https://picsum.photos/seed/rev008/60/60', rating: 4, date: '4 months ago', text: 'Excellent communication from the team. The venue was immaculate and the pricing was very competitive for the quality offered. Will be back.' },

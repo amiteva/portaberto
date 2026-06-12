@@ -4,7 +4,7 @@
     <section class="home-hero" :aria-label="t('home.heroAria')">
       <div class="home-hero__media">
         <img
-          src="https://picsum.photos/seed/eventushero/1920/800"
+          src="https://picsum.photos/seed/portabertohero/1920/800"
           :alt="t('home.heroImageAlt')"
           class="home-hero__img"
           fetchpriority="high"
@@ -19,7 +19,7 @@
         </p>
         <div class="home-hero__actions">
           <BaseButton size="lg" @click="scrollToEvents">{{ t('home.browseEvents') }}</BaseButton>
-          <BaseButton variant="outlined" size="lg" :to="'/venue-request'">{{ t('home.bookVenue') }}</BaseButton>
+          <BaseButton v-if="!authStore.isAdmin" variant="outlined" size="lg" :to="'/venue-request'">{{ t('home.bookVenue') }}</BaseButton>
         </div>
       </div>
     </section>

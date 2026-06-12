@@ -59,5 +59,10 @@ export const useVenuesStore = defineStore('venues', () => {
     return venues.value.find(v => v.id === id) ?? null
   }
 
-  return { venues, loading, error, load, reload, create, update }
+  function remove(id) {
+    const numericId = Number(id)
+    venues.value = venues.value.filter((venue) => Number(venue.id) !== numericId)
+  }
+
+  return { venues, loading, error, load, reload, create, update, remove }
 })

@@ -12,13 +12,13 @@
         <RouterLink to="/venues" class="header__nav-item" active-class="header__nav-item--active">
           {{ t('nav.venues') }}
         </RouterLink>
-        <RouterLink to="/contact" class="header__nav-item" active-class="header__nav-item--active">
+        <RouterLink v-if="!authStore.isAdmin" to="/contact" class="header__nav-item" active-class="header__nav-item--active">
           {{ t('nav.contact') }}
         </RouterLink>
-        <RouterLink v-if="authStore.isLoggedIn" to="/my-bookings" class="header__nav-item" active-class="header__nav-item--active">
+        <RouterLink v-if="canUseAttendeePages" to="/my-bookings" class="header__nav-item" active-class="header__nav-item--active">
           {{ t('nav.myBookings') }}
         </RouterLink>
-        <RouterLink v-if="authStore.isLoggedIn" to="/favorites" class="header__nav-item" active-class="header__nav-item--active">
+        <RouterLink v-if="canUseAttendeePages" to="/favorites" class="header__nav-item" active-class="header__nav-item--active">
           {{ t('nav.favorites') }}
         </RouterLink>
       </nav>
@@ -68,9 +68,9 @@
       >
         <RouterLink to="/"        class="header__mobile-item" exact-active-class="header__mobile-item--active" @click="menuOpen = false">{{ t('nav.events') }}</RouterLink>
         <RouterLink to="/venues"  class="header__mobile-item" active-class="header__mobile-item--active"       @click="menuOpen = false">{{ t('nav.venues') }}</RouterLink>
-        <RouterLink to="/contact" class="header__mobile-item" active-class="header__mobile-item--active"       @click="menuOpen = false">{{ t('nav.contact') }}</RouterLink>
-        <RouterLink v-if="authStore.isLoggedIn" to="/my-bookings" class="header__mobile-item" active-class="header__mobile-item--active" @click="menuOpen = false">{{ t('nav.myBookings') }}</RouterLink>
-        <RouterLink v-if="authStore.isLoggedIn" to="/favorites" class="header__mobile-item" active-class="header__mobile-item--active" @click="menuOpen = false">{{ t('nav.favorites') }}</RouterLink>
+        <RouterLink v-if="!authStore.isAdmin" to="/contact" class="header__mobile-item" active-class="header__mobile-item--active"       @click="menuOpen = false">{{ t('nav.contact') }}</RouterLink>
+        <RouterLink v-if="canUseAttendeePages" to="/my-bookings" class="header__mobile-item" active-class="header__mobile-item--active" @click="menuOpen = false">{{ t('nav.myBookings') }}</RouterLink>
+        <RouterLink v-if="canUseAttendeePages" to="/favorites" class="header__mobile-item" active-class="header__mobile-item--active" @click="menuOpen = false">{{ t('nav.favorites') }}</RouterLink>
         <div class="header__mobile-bottom">
           <LocaleSwitcher />
           <ThemeToggle />
@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
@@ -101,6 +101,7 @@ const menuOpen   = ref(false)
 const router = useRouter()
 const authStore = useAuthStore()
 const { t } = useI18n()
+const canUseAttendeePages = computed(() => authStore.isLoggedIn && !authStore.isAdmin)
 
 function onScroll() {
   isScrolled.value = window.scrollY > 20

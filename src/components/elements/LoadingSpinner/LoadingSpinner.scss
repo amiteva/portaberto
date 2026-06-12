@@ -1,8 +1,8 @@
 .spinner {
   @include flex(column, center, center);
-  gap: 1rem;
-  width: var(--size, 2.5rem);
-  height: var(--size, 2.5rem);
+  gap: 20px;
+  width: var(--size, 40px);
+  height: var(--size, 40px);
 
   &__svg {
     width: 100%;

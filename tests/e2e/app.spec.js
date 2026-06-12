@@ -15,7 +15,7 @@ test('home page renders events and supports locale switching', async ({ page }) 
   }
 
   await page.getByRole('button', { name: /Choose language/i }).first().click()
-  await page.getByRole('menuitemradio', { name: /Македонски/i }).click()
+  await page.getByRole('menuitemradio', { name: /Macedonian/i }).click()
 
   await expect(page.getByRole('link', { name: 'Настани' }).first()).toBeVisible()
   await expect(page.getByRole('heading', { name: /Посебни/i })).toBeVisible()
@@ -49,7 +49,7 @@ test('keyboard users can open an event card', async ({ page }) => {
   await expect(page).toHaveURL(/\/events\/\d+/)
 })
 
-test('favorites page only shows favorites for the current profile', async ({ page }) => {
+test('favorites page only shows favorites for attendees', async ({ page }) => {
   await mockFakerApi(page)
 
   await page.goto('/login')
@@ -67,8 +67,9 @@ test('favorites page only shows favorites for the current profile', async ({ pag
   await page.getByRole('button', { name: /Admin/i }).click()
   await page.goto('/favorites')
 
-  await expect(page.getByText('No favorites yet')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Global Innovation Summit' })).toHaveCount(0)
+  await expect(page).toHaveURL(/\/$/)
+  await expect(page.getByRole('heading', { name: 'Favorites' })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: 'Favorites' })).toHaveCount(0)
 })
 
 test('admin can manage events and venues without attendee registration', async ({ page }) => {
@@ -76,6 +77,9 @@ test('admin can manage events and venues without attendee registration', async (
 
   await page.goto('/login')
   await page.getByRole('button', { name: /Admin/i }).click()
+  await expect(page.getByRole('link', { name: 'Contact' })).toHaveCount(0)
+  await page.goto('/contact')
+  await expect(page).toHaveURL(/\/$/)
 
   await page.getByRole('button', { name: 'Create Event' }).click()
   await page.getByLabel('Event title').fill('Admin Created Summit')
@@ -88,8 +92,9 @@ test('admin can manage events and venues without attendee registration', async (
 
   await expect(page.getByRole('heading', { name: 'Admin Created Summit' })).toBeVisible()
   await page.getByRole('link', { name: /View details for Admin Created Summit/i }).click()
-  await expect(page.getByText('Registration is disabled for admin accounts.')).toBeVisible()
+  await expect(page.getByText('Manage this event.')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Register Now' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Cancel Event' })).toBeVisible()
 
   await page.getByRole('button', { name: 'Edit Event' }).first().click()
   await page.getByLabel('Event title').fill('Admin Updated Summit')

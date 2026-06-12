@@ -14,7 +14,7 @@
   border-bottom: 1px solid var(--color-border);
   background: linear-gradient(180deg, var(--color-bg-surface), var(--color-bg-base));
 
-  @include mq('tablet') { padding: 72px 0 36px; }
+  @include mq('tablet') { padding: 72px 0 40px; }
 }
 
 .privacy-page__hero-grid {
@@ -28,10 +28,10 @@
 }
 
 .privacy-page__eyebrow {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -39,32 +39,32 @@
 .privacy-page__title {
   margin-bottom: 12px;
   color: var(--color-text-primary);
-  font-size: clamp(38px, 6vw, 64px);
+  font-size: clamp(40px, 6vw, 64px);
   line-height: 0.95;
 }
 
 .privacy-page__lead {
   max-width: 44ch;
   color: var(--color-text-secondary);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.75;
 }
 
 .privacy-page__meta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-top: 24px;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: 1000px;
   background: var(--color-bg-elevated);
   color: var(--color-text-secondary);
-  font-size: 14px;
+  font-size: 16px;
 
   strong {
     color: var(--color-text-primary);
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -79,10 +79,10 @@
 .privacy-page__hero-card-label,
 .privacy-page__toc-title,
 .privacy-page__summary-kicker {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -98,14 +98,14 @@
   position: relative;
   padding-left: 20px;
   color: var(--color-text-secondary);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.65;
 
   &::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 11px;
+    top: 12px;
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -119,7 +119,7 @@
 
 .privacy-page__summary-grid {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 
   @include mq('tablet-small') {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -129,12 +129,12 @@
 .privacy-page__summary-card {
   padding: 20px;
   border: 1px solid var(--color-border);
-  border-radius: 18px;
+  border-radius: 20px;
   background: var(--color-bg-surface);
 
   p:last-child {
     color: var(--color-text-secondary);
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.65;
   }
 }
@@ -156,7 +156,7 @@
 .privacy-page__toc {
   padding: 20px;
   border: 1px solid var(--color-border);
-  border-radius: 18px;
+  border-radius: 20px;
   background: var(--color-bg-surface);
 
   @include mq('tablet-wide') {
@@ -167,11 +167,11 @@
 
 .privacy-page__toc-nav {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 
   a {
     color: var(--color-text-secondary);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.4;
     transition: color 0.15s ease, transform 0.15s ease;
 
@@ -184,20 +184,20 @@
 
 .privacy-page__sections {
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
 .privacy-page__section {
   scroll-margin-top: calc(var(--body-padding-top) + 24px);
   padding: 24px;
   border: 1px solid var(--color-border);
-  border-radius: 22px;
+  border-radius: 24px;
   background: var(--color-bg-surface);
   box-shadow: var(--shadow-card);
 
   p {
     color: var(--color-text-secondary);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     line-height: 1.75;
   }
 
@@ -208,7 +208,7 @@
   a {
     color: var(--color-accent);
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
   }
 }
 
@@ -219,13 +219,13 @@
 .privacy-page__section-head {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+  gap: 16px;
+  margin-bottom: 20px;
 
   h2 {
     margin: 0;
     color: var(--color-text-primary);
-    font-size: clamp(24px, 3vw, 34px);
+    font-size: clamp(24px, 3vw, 36px);
     line-height: 1.05;
   }
 }
@@ -237,21 +237,21 @@
   min-width: 44px;
   height: 44px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: 1000px;
   background: var(--color-accent);
   color: var(--color-accent-text);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
 }
 
 .privacy-page__contact-card {
   display: grid;
-  gap: 16px;
-  margin-top: 18px;
+  gap: 20px;
+  margin-top: 20px;
   padding: 20px;
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 20px;
   background: var(--color-bg-base);
 
   p {

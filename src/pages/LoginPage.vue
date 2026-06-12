@@ -38,7 +38,7 @@
           </button>
 
           <!-- Demo User -->
-          <button class="login__option login__option--recommended" @click="loginAs('user')">
+          <button class="login__option" @click="loginAs('user')">
             <div class="login__option-left">
               <img
                 src="https://picsum.photos/seed/user42/48/48"

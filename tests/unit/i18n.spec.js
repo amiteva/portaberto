@@ -7,7 +7,7 @@ describe('i18n', () => {
 
     expect(i18n.global.locale.value).toBe('mk')
     expect(document.documentElement.lang).toBe('mk')
-    expect(localStorage.getItem('eventus-locale')).toBe('mk')
+    expect(localStorage.getItem('portaberto-locale')).toBe('mk')
 
     setLocale('en')
   })

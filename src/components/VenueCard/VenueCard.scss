@@ -32,26 +32,26 @@
 
   &__type {
     position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
+    top: 12px;
+    left: 12px;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-accent-text);
     background-color: var(--color-accent);
-    padding: 0.25rem 0.625rem;
-    border-radius: 62.5rem;
+    padding: 4px 12px;
+    border-radius: 1000px;
   }
 
   // ── Body ──────────────────────────────────────────────────────────────────
 
   &__body {
     @include flex(column, space-between, flex-start);
-    padding: 16px;
+    padding: 20px;
     flex: 1;
-    gap: 16px;
+    gap: 20px;
   }
 
   &__info {
@@ -62,13 +62,13 @@
 
   &__name {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--color-text-primary);
     line-height: 1.4;
   }
 
   &__description {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--color-text-secondary);
     display: -webkit-box;
@@ -84,11 +84,11 @@
 
   &__meta-item {
     @include flex(row, flex-start, center);
-    gap: 0.5rem;
-    font-size: 15px;
+    gap: 8px;
+    font-size: 16px;
     color: var(--color-text-secondary);
 
-    svg { width: 0.9rem; height: 0.9rem; flex-shrink: 0; color: var(--color-accent); }
+    svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-accent); }
     strong { color: var(--color-text-primary); font-family: 'Inter', system-ui, sans-serif; font-weight: 600; }
   }
 
@@ -100,18 +100,75 @@
 
   &__amenity {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-text-muted);
-    padding: 0.25rem 0.625rem;
+    padding: 4px 12px;
     border: 1px solid var(--color-border);
-    border-radius: 62.5rem;
+    border-radius: 1000px;
   }
 
   &__cta-wrap { width: 100%; }
 
   &__admin-actions {
-    padding-top: 0.75rem;
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 12px;
     border-top: 1px solid var(--color-border);
     width: 100%;
+  }
+
+  &__confirm {
+    color: var(--color-text-secondary);
+    font-size: 16px;
+  }
+
+  &__admin-btn {
+    @include flex(row, center, center);
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 2px solid var(--color-border);
+    border-radius: 1000px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-text-muted);
+      color: var(--color-text-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    &--edit {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+
+      &:hover {
+        background: var(--color-accent-soft);
+        border-color: var(--color-accent-hover);
+        color: var(--color-accent-hover);
+      }
+    }
+
+    &--danger {
+      border-color: var(--color-error);
+      color: var(--color-error);
+
+      &:hover {
+        background: color-mix(in srgb, var(--color-error) 12%, transparent);
+        border-color: var(--color-error);
+        color: var(--color-error);
+      }
+    }
   }
 }

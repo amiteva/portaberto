@@ -31,7 +31,17 @@
       </div>
 
       <div v-if="authStore.isAdmin" class="venue-card__admin-actions">
-        <BaseButton variant="outlined" size="sm" @click="$emit('edit', venue)">Edit Venue</BaseButton>
+        <button type="button" class="venue-card__admin-btn venue-card__admin-btn--edit" @click="$emit('edit', venue)">
+          Edit Venue
+        </button>
+        <template v-if="confirmingDelete">
+          <span class="venue-card__confirm">Delete this venue?</span>
+          <button type="button" class="venue-card__admin-btn" @click="confirmingDelete = false">Keep</button>
+          <button type="button" class="venue-card__admin-btn venue-card__admin-btn--danger" @click="confirmDelete">Confirm Delete</button>
+        </template>
+        <button v-else type="button" class="venue-card__admin-btn venue-card__admin-btn--danger" @click="confirmingDelete = true">
+          Delete Venue
+        </button>
       </div>
 
       <RouterLink v-if="!authStore.isAdmin" :to="`/contact?venue=${venue.id}`" class="venue-card__cta-wrap">
@@ -44,6 +54,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 import ImageCarousel from '@/components/elements/ImageCarousel/ImageCarousel.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -52,9 +63,15 @@ const props = defineProps({
   venue: { type: Object, required: true }
 })
 
-defineEmits(['edit'])
+const emit = defineEmits(['edit', 'delete'])
 
 const authStore = useAuthStore()
+const confirmingDelete = ref(false)
+
+function confirmDelete() {
+  emit('delete', props.venue)
+  confirmingDelete.value = false
+}
 </script>
 
 <style lang="scss" scoped>

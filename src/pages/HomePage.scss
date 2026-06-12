@@ -32,7 +32,7 @@
     align-self: flex-end;
     position: relative;
     z-index: 1;
-    gap: 10px;
+    gap: 12px;
     padding: 48px var(--wrapper-spacing-x) 28px;
     background: linear-gradient(
       to bottom,
@@ -47,9 +47,9 @@
   }
 
   &__eyebrow {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.2;
-    letter-spacing: 0.14em;
+    letter-spacing: 2px;
     color: $clr-primary-300;
   }
 
@@ -68,7 +68,7 @@
 
   &__actions {
     @include flex(row, flex-start, center);
-    gap: 0.75rem;
+    gap: 12px;
     flex-wrap: wrap;
     animation: slideInText 1s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
@@ -81,7 +81,7 @@
 
   &__header {
     @include flex(column, flex-start, flex-start);
-    gap: 1rem;
+    gap: 20px;
     padding: 24px var(--wrapper-spacing-x) 0;
 
     @include mq('tablet') {
@@ -92,14 +92,14 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: 28px;
     color: var(--color-text-primary);
 
-    @include mq('tablet') { font-size: 34px; }
+    @include mq('tablet') { font-size: 36px; }
   }
 
   &__subtitle {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-text-muted);
   }
 }

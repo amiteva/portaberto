@@ -1,12 +1,15 @@
 <template>
   <article
     class="event-card"
+    :class="{ 'event-card--cancelled': event.status === 'cancelled' }"
     @click="navigate"
   >
     <div class="event-card__media">
       <ImageCarousel :images="event.images || [event.venueImage]" :alt="event.title">
         <span class="event-card__category">{{ event.category }}</span>
+        <span v-if="event.status === 'cancelled'" class="event-card__status">Canceled</span>
         <button
+          v-if="!authStore.isAdmin"
           class="event-card__favorite"
           :class="{ 'event-card__favorite--active': isFav }"
           :aria-label="isFav ? t('eventCard.removeFavorite', { title: event.title }) : t('eventCard.addFavorite', { title: event.title })"
@@ -40,7 +43,9 @@
       </div>
 
       <div class="event-card__footer">
-        <span class="event-card__price">{{ t('eventCard.fromPrice', { price: event.price }) }}</span>
+        <span class="event-card__price">
+          {{ event.status === 'cancelled' ? 'Registration closed' : t('eventCard.fromPrice', { price: event.price }) }}
+        </span>
         <RouterLink
           :to="`/events/${event.id}`"
           class="event-card__link"
@@ -78,6 +83,7 @@ function navigate() {
 }
 
 function toggleFav() {
+  if (authStore.isAdmin) return
   if (!authStore.isLoggedIn) { router.push('/login'); return }
   favStore.toggle(props.event.id)
 }

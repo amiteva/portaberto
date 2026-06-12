@@ -4,7 +4,7 @@
   z-index: 100;
   background-color: var(--color-overlay);
   @include flex(column, center, center);
-  padding: 1rem;
+  padding: 20px;
   backdrop-filter: blur(4px);
 }
 
@@ -12,110 +12,125 @@
   position: relative;
   background-color: var(--color-bg-surface);
   width: 100%;
-  max-width: 36rem;
+  max-width: 576px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: var(--shadow-modal);
 
   &__close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 20px;
+    right: 20px;
     @include flex();
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--color-text-secondary);
     border-radius: 50%;
     z-index: 1;
-    transition: color 0.15s ease, background-color 0.15s ease;
+    transition:
+      color 0.15s ease,
+      background-color 0.15s ease;
 
-    svg { width: 1.25rem; height: 1.25rem; }
-    &:hover { color: var(--color-text-primary); background-color: var(--color-bg-elevated); }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-elevated);
+    }
   }
 
   // ── Header ────────────────────────────────────────────────────────────────
 
   &__header {
     @include flex(column, flex-start, flex-start);
-    gap: 0.5rem;
-    padding: 20px 16px 16px;
+    gap: 8px;
+    padding: 20px 20px 20px;
     border-bottom: 1px solid var(--color-border);
   }
 
   &__category {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-accent);
   }
 
   &__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 26px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 28px;
     color: var(--color-text-primary);
+    line-height: 64px;
   }
 
   &__subtitle {
-    font-size: 16px;
+    font-size: 20px;
     color: var(--color-text-secondary);
   }
 
   // ── Form ──────────────────────────────────────────────────────────────────
 
-  &__content { padding-bottom: 0; }
+  &__content {
+    padding-bottom: 0;
+  }
 
   &__form {
     @include flex(column, flex-start, flex-start);
     gap: 12px;
-    padding: 16px;
+    padding: 20px;
   }
 
   &__form-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 20px;
     width: 100%;
 
-    @include mq('tablet-small') { grid-template-columns: repeat(2, 1fr); }
+    @include mq("tablet-small") {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__form-full {
-    @include mq('tablet-small') { grid-column: 1 / -1; }
+    @include mq("tablet-small") {
+      grid-column: 1 / -1;
+    }
   }
 
   // ── Seats ────────────────────────────────────────────────────────────────
 
   &__seats {
     @include flex(column, flex-start, flex-start);
-    gap: 0.5rem;
+    gap: 8px;
     width: 100%;
   }
 
   &__seats-label {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-text-secondary);
   }
 
   &__seats-control {
     @include flex(row, flex-start, center);
     gap: 0;
-    border: 1.5px solid var(--color-border);
-    border-radius: 0.25rem;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
     overflow: hidden;
     width: fit-content;
   }
 
   &__seats-btn {
     @include flex();
-    width: 2.5rem;
-    height: 2.75rem;
+    width: 40px;
+    height: 44px;
     background: var(--color-bg-elevated);
     border: none;
     cursor: pointer;
@@ -123,25 +138,29 @@
     color: var(--color-text-primary);
     transition: background-color 0.15s ease;
 
-    &:hover { background-color: var(--color-border); }
+    &:hover {
+      background-color: var(--color-border);
+    }
   }
 
   &__seats-input {
-    width: 3.5rem;
+    width: 56px;
     text-align: center;
     border: none;
-    border-left: 1.5px solid var(--color-border);
-    border-right: 1.5px solid var(--color-border);
+    border-left: 2px solid var(--color-border);
+    border-right: 2px solid var(--color-border);
     background: var(--color-input-bg);
     color: var(--color-text-primary);
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-weight: 600;
-    font-size: 17px;
-    height: 2.75rem;
+    font-size: 16px;
+    height: 44px;
     outline: none;
 
     &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button { -webkit-appearance: none; }
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
     -moz-appearance: textfield;
   }
 
@@ -149,29 +168,37 @@
 
   &__checkbox {
     @include flex(row, flex-start, flex-start);
-    gap: 0.75rem;
+    gap: 12px;
     cursor: pointer;
     width: 100%;
-    padding: 0.25rem 0;
+    padding: 4px 0;
   }
 
   &__checkbox-input {
     position: absolute;
-    width: 1px; height: 1px;
-    overflow: hidden; clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
   }
 
   &__checkbox-box {
     @include flex();
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
     border: 2px solid var(--color-border);
-    border-radius: 0.25rem;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-    margin-top: 0.125rem;
+    border-radius: 4px;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease;
+    margin-top: 2px;
 
-    svg { width: 0.75rem; height: 0.75rem; color: var(--color-accent-text); }
+    svg {
+      width: 12px;
+      height: 12px;
+      color: var(--color-accent-text);
+    }
 
     &--checked {
       background-color: var(--color-accent);
@@ -180,24 +207,24 @@
   }
 
   &__checkbox-text {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
 
   &__error {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-error);
-    margin: -0.5rem 0 0;
+    margin: -8px 0 0;
   }
 
   // ── Actions ───────────────────────────────────────────────────────────────
 
   &__actions {
     @include flex(row, flex-end, center);
-    gap: 0.75rem;
+    gap: 12px;
     width: 100%;
-    padding-top: 0.5rem;
+    padding-top: 8px;
     border-top: 1px solid var(--color-border);
   }
 
@@ -209,30 +236,40 @@
     padding: 40px 24px;
     text-align: center;
 
-    p { color: var(--color-text-secondary); max-width: 28ch; }
-    strong { color: var(--color-text-primary); }
-    em { color: var(--color-accent); font-style: normal; }
+    p {
+      color: var(--color-text-secondary);
+      max-width: 28ch;
+    }
+    strong {
+      color: var(--color-text-primary);
+    }
+    em {
+      color: var(--color-accent);
+      font-style: normal;
+    }
   }
 
   &__thankyou-icon {
-    width: 4rem;
-    height: 4rem;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background-color: rgba(0, 190, 162, 0.12);
     @include flex();
 
     svg {
-      width: 2.25rem;
-      height: 2.25rem;
+      width: 40px;
+      height: 40px;
       color: var(--color-accent);
     }
   }
 
   &__thankyou-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 26px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 28px;
     color: var(--color-text-primary);
   }
 
-  &__thankyou-btn { margin-top: 0.5rem; }
+  &__thankyou-btn {
+    margin-top: 8px;
+  }
 }

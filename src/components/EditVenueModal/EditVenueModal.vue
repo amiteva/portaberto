@@ -40,7 +40,7 @@
               />
 
               <BaseInput
-                v-model.number="form.capacity"
+                v-model="form.capacity"
                 label="Capacity"
                 type="number"
               />
@@ -48,6 +48,7 @@
               <div class="edit-modal__field-group">
                 <label class="edit-modal__label" for="venue-type-select">Type</label>
                 <select id="venue-type-select" v-model="form.type" class="edit-modal__select">
+                  <option value="">Select type</option>
                   <option v-for="t in venueTypes" :key="t" :value="t">{{ t }}</option>
                 </select>
               </div>
@@ -86,6 +87,7 @@
 
 <script setup>
 import { computed, reactive, watch } from 'vue'
+import { useBodyScrollLock } from '@/composables/useBodyScrollLock'
 import { useVenuesStore } from '@/stores/venues'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 import BaseInput from '@/components/elements/BaseInput/BaseInput.vue'
@@ -97,6 +99,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'saved'])
+useBodyScrollLock(() => props.modelValue)
 
 const venuesStore = useVenuesStore()
 const isEditing = computed(() => !!props.venue)
@@ -111,7 +114,7 @@ const allAmenities = [
 const form = reactive({
   name: '',
   description: '',
-  capacity: 0,
+  capacity: '',
   type: '',
   amenities: []
 })
@@ -119,8 +122,8 @@ const form = reactive({
 function initForm() {
   form.name = props.venue?.name ?? ''
   form.description = props.venue?.description ?? ''
-  form.capacity = props.venue?.capacity ?? 0
-  form.type = props.venue?.type ?? venueTypes[0]
+  form.capacity = props.venue?.capacity ?? ''
+  form.type = props.venue?.type ?? ''
   form.amenities = [...(props.venue?.amenities ?? [])]
 }
 

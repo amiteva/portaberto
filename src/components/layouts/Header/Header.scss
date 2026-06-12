@@ -11,7 +11,7 @@
 
   &--scrolled {
     background-color: var(--color-header-bg-scrolled);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 1px 0 var(--color-divider-strong);
   }
 
@@ -19,11 +19,11 @@
 
   &__inner {
     @include flex(row, space-between, center);
-    height: 4rem;
+    height: 64px;
     padding: 0 var(--wrapper-spacing-x);
 
-    @include mq('tablet')  { height: 4.5rem; }
-    @include mq('desktop') { height: 5rem; }
+    @include mq('tablet')  { height: 72px; }
+    @include mq('desktop') { height: 80px; }
   }
 
   // ── Logo ───────────────────────────────────────────────────────────────────
@@ -33,7 +33,7 @@
   &__logo-mark {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 20px;
-    letter-spacing: 0.2em;
+    letter-spacing: 4px;
     color: var(--color-text-inverse);
     text-transform: uppercase;
 
@@ -54,11 +54,11 @@
   &__nav-item {
     @include flex();
     height: 100%;
-    padding: 0 1.125rem;
+    padding: 0 20px;
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.07em;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-text-inverse-muted);
     text-decoration: none;
@@ -73,7 +73,7 @@
 
   &__actions {
     @include flex(row, flex-end, center);
-    gap: 0.625rem;
+    gap: 12px;
   }
 
   &__cta-wrap {
@@ -83,48 +83,48 @@
 
   &__user {
     @include flex(row, flex-start, center);
-    gap: 0.5rem;
+    gap: 8px;
     display: none;
     @include mq('desktop') { display: flex; }
   }
 
   &__user-avatar {
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--color-accent);
   }
 
   &__user-name {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-text-inverse);
   }
 
   &__signout {
     @include flex();
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--color-text-inverse-muted);
-    border-radius: 0.25rem;
+    border-radius: 4px;
     transition: color 0.15s ease, background-color 0.15s ease;
 
-    svg { width: 1rem; height: 1rem; }
+    svg { width: 20px; height: 20px; }
     &:hover { color: var(--color-error); background: var(--color-accent-soft); }
   }
 
   &__mobile-user {
     @include flex(row, flex-start, center);
-    gap: 0.75rem;
+    gap: 12px;
   }
 
   &__mobile-username {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-text-inverse);
   }
@@ -133,9 +133,9 @@
     background: none;
     border: 1px solid var(--color-border);
     border-radius: 4px;
-    padding: 0.375rem 0.75rem;
+    padding: 8px 12px;
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-text-inverse-muted);
     cursor: pointer;
@@ -148,14 +148,14 @@
 
   &__burger {
     @include flex(column, center, center);
-    gap: 5px;
-    width: 2.25rem;
-    height: 2.25rem;
+    gap: 4px;
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.375rem;
-    border-radius: 0.25rem;
+    padding: 8px;
+    border-radius: 4px;
     transition: background-color 0.15s ease;
 
     @include mq('desktop') { display: none; }
@@ -165,15 +165,15 @@
   &__burger-line {
     display: block;
     width: 20px;
-    height: 1.5px;
+    height: 2px;
     background-color: var(--color-text-inverse);
     border-radius: 2px;
     transform-origin: center;
     transition: transform 0.2s ease, opacity 0.2s ease;
 
-    &--open-1 { transform: translateY(6.5px) rotate(45deg); }
+    &--open-1 { transform: translateY(8px) rotate(45deg); }
     &--open-2 { opacity: 0; }
-    &--open-3 { transform: translateY(-6.5px) rotate(-45deg); }
+    &--open-3 { transform: translateY(-8px) rotate(-45deg); }
   }
 
   // ── Mobile menu ────────────────────────────────────────────────────────────
@@ -182,17 +182,17 @@
     @include flex(column, flex-start, stretch);
     background-color: var(--color-header-bg);
     border-top: 1px solid var(--color-divider-strong);
-    padding: 0.5rem var(--wrapper-spacing-x) 1.25rem;
+    padding: 8px var(--wrapper-spacing-x) 20px;
 
     @include mq('desktop') { display: none; }
   }
 
   &__mobile-item {
-    padding: 1rem 0;
+    padding: 20px 0;
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-text-inverse-muted);
     text-decoration: none;
@@ -205,6 +205,6 @@
 
   &__mobile-bottom {
     @include flex(row, space-between, center);
-    padding-top: 1rem;
+    padding-top: 20px;
   }
 }

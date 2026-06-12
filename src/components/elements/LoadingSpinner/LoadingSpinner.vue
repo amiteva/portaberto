@@ -21,7 +21,7 @@
 
 <script setup>
 defineProps({
-  size:  { type: String, default: '2.5rem' },
+  size:  { type: String, default: '40px' },
   label: { type: String, default: 'Loading…' }
 })
 </script>

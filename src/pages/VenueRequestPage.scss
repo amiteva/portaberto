@@ -50,8 +50,8 @@
   }
 
   &__eyebrow {
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: 16px;
+    letter-spacing: 2px;
     color: $clr-primary-300;
   }
 
@@ -75,23 +75,23 @@
   grid-template-columns: 1fr;
 
   @include mq("tablet-wide") {
-    grid-template-columns: minmax(22rem, 4fr) minmax(0, 8fr);
+    grid-template-columns: minmax(352px, 4fr) minmax(0, 8fr);
   }
 
   &__info {
     @include flex(column, flex-start, flex-start);
-    gap: 1.5rem;
+    gap: 24px;
     padding: 28px var(--wrapper-spacing-x);
     background-color: var(--color-bg-surface);
 
     @include mq("tablet-wide") {
       border-right: 1px solid var(--color-border);
-      padding: 48px clamp(2rem, 4vw, 4.5rem);
+      padding: 48px clamp(32px, 4vw, 72px);
     }
   }
 
   &__title {
-    font-size: 36px;
+    font-size: 40px;
     color: var(--color-text-primary);
 
     @include mq("desktop") {
@@ -100,29 +100,29 @@
   }
 
   &__body {
-    font-size: 17px;
-    line-height: 1.75rem;
+    font-size: 16px;
+    line-height: 28px;
     color: var(--color-text-secondary);
     max-width: 62ch;
   }
 
   &__features {
     @include flex(column, flex-start, flex-start);
-    gap: 0.75rem;
+    gap: 12px;
   }
 
   &__feature {
     @include flex(row, flex-start, flex-start);
-    gap: 0.75rem;
-    font-size: 16px;
+    gap: 12px;
+    font-size: 20px;
     color: var(--color-text-secondary);
 
     svg {
-      width: 1rem;
-      height: 1rem;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
       color: var(--color-accent);
-      margin-top: 0.25rem;
+      margin-top: 4px;
     }
   }
 
@@ -131,7 +131,7 @@
     background-color: var(--color-bg-base);
 
     @include mq("tablet-wide") {
-      padding: 48px clamp(2rem, 5vw, 5rem);
+      padding: 48px clamp(32px, 5vw, 80px);
     }
   }
 }
@@ -142,11 +142,11 @@
   @include flex(column, flex-start, flex-start);
   gap: 24px;
   width: 100%;
-  max-width: 72rem;
+  max-width: 1152px;
 
   &__fieldset {
     @include flex(column, flex-start, flex-start);
-    gap: 16px;
+    gap: 20px;
     width: 100%;
     border: none;
     padding: 0;
@@ -157,17 +157,17 @@
     font-family: "Inter", system-ui, sans-serif;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: 0.1em;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     padding: 0;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 20px;
     width: 100%;
 
     @include mq("tablet-small") {
@@ -190,26 +190,26 @@
   &__radio-label {
     font-family: "Inter", system-ui, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-text-secondary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
   }
 
   &__radio-group {
     @include flex(row, flex-start, center);
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 8px;
   }
 
   &__radio {
     @include flex(row, flex-start, center);
-    gap: 0.5rem;
+    gap: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     color: var(--color-text-secondary);
-    padding: 0.5rem 0.875rem;
-    border: 1.5px solid var(--color-border);
-    border-radius: 62.5rem;
+    padding: 8px 20px;
+    border: 2px solid var(--color-border);
+    border-radius: 1000px;
     transition:
       border-color 0.15s ease,
       color 0.15s ease;
@@ -229,8 +229,8 @@
   }
 
   &__radio-circle {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 12px;
+    height: 12px;
     border: 2px solid var(--color-border);
     border-radius: 50%;
     flex-shrink: 0;
@@ -248,9 +248,9 @@
 
   &__checkbox {
     @include flex(row, flex-start, flex-start);
-    gap: 0.75rem;
+    gap: 12px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
@@ -265,19 +265,19 @@
 
   &__checkbox-box {
     @include flex();
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
     border: 2px solid var(--color-border);
-    border-radius: 0.25rem;
-    margin-top: 0.125rem;
+    border-radius: 4px;
+    margin-top: 2px;
     transition:
       background-color 0.15s ease,
       border-color 0.15s ease;
 
     svg {
-      width: 0.75rem;
-      height: 0.75rem;
+      width: 12px;
+      height: 12px;
       color: var(--color-accent-text);
     }
     &--checked {
@@ -293,24 +293,24 @@
   }
 
   &__error {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-error);
-    margin: -1rem 0 0;
+    margin: -20px 0 0;
   }
 
   &__actions {
-    padding-top: 0.5rem;
+    padding-top: 8px;
   }
 
   &__select {
     width: 100%;
-    padding: 14px 16px;
+    padding: 16px 20px;
     background: var(--color-input-bg);
     border: 2px solid var(--color-border);
     border-radius: 4px;
     color: var(--color-text-primary);
     font-family: "Inter", system-ui, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     outline: none;
     cursor: pointer;
     transition: border-color 0.15s ease;
@@ -340,9 +340,9 @@
   &__select-label {
     font-family: "Inter", system-ui, sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-text-muted);
-    letter-spacing: 0.04em;
+    letter-spacing: 1px;
   }
 }
 
@@ -350,10 +350,10 @@
 
 .venue-thankyou {
   @include flex(column, center, center);
-  gap: 1.25rem;
-  padding: 4rem 2rem;
+  gap: 20px;
+  padding: 64px 32px;
   text-align: center;
-  max-width: 32rem;
+  max-width: 512px;
   margin: 0 auto;
 
   p {
@@ -364,22 +364,22 @@
   }
 
   &__icon {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     background-color: var(--color-accent-soft);
     @include flex();
 
     svg {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 40px;
+      height: 40px;
       color: var(--color-accent);
     }
   }
 
   &__title {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 30px;
+    font-size: 32px;
     color: var(--color-text-primary);
   }
 }

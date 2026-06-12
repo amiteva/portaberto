@@ -15,7 +15,13 @@
       @keydown.down.prevent="open = true"
     >
       <span>{{ activeLocale.shortLabel }}</span>
-      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <svg
+        viewBox="0 0 20 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        aria-hidden="true"
+      >
         <path d="M5 8l5 5 5-5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
@@ -28,7 +34,7 @@
         :aria-label="t('a11y.chooseLanguage')"
       >
         <button
-          v-for="option in SUPPORTED_LOCALES"
+          v-for="option in localeOptions"
           :key="option.code"
           type="button"
           class="locale-switcher__option"
@@ -37,7 +43,9 @@
           :aria-checked="locale === option.code"
           @click="chooseLocale(option.code)"
         >
-          <span class="locale-switcher__option-code">{{ option.shortLabel }}</span>
+          <span class="locale-switcher__option-code">{{
+            option.shortLabel
+          }}</span>
           <span class="locale-switcher__option-label">{{ option.label }}</span>
         </button>
       </div>
@@ -46,39 +54,60 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { SUPPORTED_LOCALES, setLocale } from '@/i18n'
+import { computed, onMounted, onUnmounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { SUPPORTED_LOCALES, setLocale } from "@/i18n";
 
-const { locale, t } = useI18n()
+const { locale, t } = useI18n();
 
-const open = ref(false)
-const rootRef = ref(null)
+const open = ref(false);
+const rootRef = ref(null);
+const localeLabels = {
+  en: {
+    en: "English",
+    mk: "Macedonian",
+  },
+  mk: {
+    en: "Англиски",
+    mk: "Македонски",
+  },
+};
+
+const localeOptions = computed(() => {
+  const labels = localeLabels[locale.value] ?? localeLabels.en;
+  return SUPPORTED_LOCALES.map((option) => ({
+    ...option,
+    label: labels[option.code] ?? option.label,
+  }));
+});
 
 const activeLocale = computed(() => {
-  return SUPPORTED_LOCALES.find((option) => option.code === locale.value) ?? SUPPORTED_LOCALES[0]
-})
+  return (
+    localeOptions.value.find((option) => option.code === locale.value) ??
+    localeOptions.value[0]
+  );
+});
 
 function chooseLocale(code) {
-  setLocale(code)
-  open.value = false
+  setLocale(code);
+  open.value = false;
 }
 
 function onDocumentPointerDown(event) {
   if (!rootRef.value?.contains(event.target)) {
-    open.value = false
+    open.value = false;
   }
 }
 
 onMounted(() => {
-  document.addEventListener('pointerdown', onDocumentPointerDown)
-})
+  document.addEventListener("pointerdown", onDocumentPointerDown);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('pointerdown', onDocumentPointerDown)
-})
+  document.removeEventListener("pointerdown", onDocumentPointerDown);
+});
 </script>
 
 <style lang="scss" scoped>
-@import './LocaleSwitcher.scss';
+@import "./LocaleSwitcher.scss";
 </style>

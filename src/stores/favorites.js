@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 
-const STORAGE_KEY = 'eventus-favorites'
+const STORAGE_KEY = 'portaberto-favorites'
 
 function normalizeId(id) {
   const normalized = Number(id)
@@ -28,7 +28,7 @@ export const useFavoritesStore = defineStore('favorites', () => {
   const authStore = useAuthStore()
   const buckets = ref(loadBuckets())
   const activeUserKey = computed(() => {
-    if (!authStore.user) return null
+    if (!authStore.user || authStore.user.role !== 'user') return null
     return `${authStore.user.role}:${authStore.user.id}`
   })
 

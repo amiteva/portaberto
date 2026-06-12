@@ -1,13 +1,13 @@
 .speaker-card {
   @include flex(row, flex-start, center);
-  gap: 1rem;
-  padding: 1.25rem;
+  gap: 20px;
+  padding: 20px;
   background-color: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
 
   &__photo {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -16,25 +16,25 @@
 
   &__info {
     @include flex(column, flex-start, flex-start);
-    gap: 0.25rem;
+    gap: 4px;
     overflow: hidden;
   }
 
   &__name {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     color: var(--color-text-primary);
   }
 
   &__title {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-accent);
-    letter-spacing: 0.02rem;
+    letter-spacing: 1px;
   }
 
   &__email {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-text-muted);
     white-space: nowrap;
     overflow: hidden;

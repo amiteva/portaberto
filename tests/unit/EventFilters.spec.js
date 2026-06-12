@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import EventFilters from '@/components/events/EventFilters/EventFilters.vue'
+import EventFilters from '@/components/EventFilters/EventFilters.vue'
 import { i18n, setLocale } from '@/i18n'
 
 function mountFilters(props = {}) {

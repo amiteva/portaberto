@@ -25,8 +25,8 @@
     transform: translateY(-50%);
     z-index: 2;
     @include flex();
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     background: rgba(0, 0, 0, 0.55);
     border: none;
     border-radius: 50%;
@@ -36,10 +36,10 @@
     opacity: 0;
     transition: opacity 0.2s ease, background-color 0.2s ease;
 
-    svg { width: 1rem; height: 1rem; }
+    svg { width: 20px; height: 20px; }
 
-    &--prev { left: 0.5rem; }
-    &--next { right: 0.5rem; }
+    &--prev { left: 8px; }
+    &--next { right: 8px; }
 
     &:hover { background: rgba(0, 0, 0, 0.8); }
   }
@@ -48,18 +48,18 @@
 
   &__dots {
     position: absolute;
-    bottom: 0.625rem;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     @include flex(row, center, center);
-    gap: 0.375rem;
+    gap: 8px;
     z-index: 2;
   }
 
   &__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.5);
     border: none;
     padding: 0;
@@ -68,7 +68,7 @@
 
     &--active {
       background: #fff;
-      width: 18px;
+      width: 20px;
     }
   }
 }

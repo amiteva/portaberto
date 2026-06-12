@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
-import RegisterModal from '@/components/events/RegisterModal/RegisterModal.vue'
+import RegisterModal from '@/components/RegisterModal/RegisterModal.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useBookingsStore } from '@/stores/bookings'
 

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Portaberto">
+  <rect width="64" height="64" rx="18" fill="#14213d"/>
+  <path d="M20 48V16h17.2c6.9 0 11.8 4.7 11.8 11.2S44.1 38.4 37.2 38.4h-8.1V48H20Zm9.1-17.1h6.7c2.5 0 4.1-1.5 4.1-3.7s-1.6-3.7-4.1-3.7h-6.7v7.4Z" fill="#ffffff"/>
+  <circle cx="47" cy="47" r="6" fill="#fca311"/>
+</svg>

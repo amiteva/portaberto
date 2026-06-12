@@ -23,21 +23,21 @@ describe('ThemeToggle', () => {
 
     await wrapper.get('button').trigger('click')
     expect(store.preference).toBe('light')
-    expect(localStorage.getItem('eventus-theme')).toBe('light')
+    expect(localStorage.getItem('portaberto-theme')).toBe('light')
 
     await wrapper.get('button').trigger('click')
     expect(store.preference).toBe('dark')
-    expect(localStorage.getItem('eventus-theme')).toBe('dark')
+    expect(localStorage.getItem('portaberto-theme')).toBe('dark')
   })
 
   it('migrates invalid saved preferences to dark', () => {
-    localStorage.setItem('eventus-theme', 'system')
+    localStorage.setItem('portaberto-theme', 'system')
     const store = useThemeStore()
 
     store.init()
 
     expect(store.preference).toBe('dark')
-    expect(localStorage.getItem('eventus-theme')).toBe('dark')
+    expect(localStorage.getItem('portaberto-theme')).toBe('dark')
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
   })
 })

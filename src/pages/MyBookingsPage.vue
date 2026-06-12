@@ -39,7 +39,7 @@
       </div>
 
       <!-- Booking cards -->
-      <div v-else>
+      <div v-else class="bookings-page__grid">
         <div
           v-for="booking in filteredBookings"
           :key="booking.id"

@@ -101,13 +101,13 @@
                     class="venue-form__select"
                     aria-label="Preferred venue"
                   >
-                    <option value="">No preference — help me decide</option>
+                    <option value="">No preference, help me decide</option>
                     <option
                       v-for="v in venuesStore.venues"
                       :key="v.id"
                       :value="v.id"
                     >
-                      {{ v.name }} — up to {{ v.capacity }} guests
+                      {{ v.name }} - up to {{ v.capacity }} guests
                     </option>
                   </select>
                 </div>
@@ -241,7 +241,7 @@
               </span>
               <span
                 >I agree to the
-                <RouterLink to="/privacy" class="venue-form__link"
+                <RouterLink to="/privacy-policy" class="venue-form__link"
                   >privacy policy</RouterLink
                 >
                 and terms of service.</span

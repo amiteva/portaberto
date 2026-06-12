@@ -35,7 +35,7 @@
   &__hero-brand {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 44px;
-    letter-spacing: 0.08em;
+    letter-spacing: 1px;
     color: var(--color-text-inverse);
     margin-bottom: 8px;
 
@@ -44,7 +44,7 @@
 
   &__hero-tagline {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--color-text-inverse-muted);
     max-width: 28ch;
     line-height: 1.5;
@@ -56,10 +56,10 @@
     width: 100%;
     background: var(--color-bg-surface);
     @include flex(column, center, center);
-    padding: 16px 18px;
+    padding: 20px 20px;
     overflow: hidden;
 
-    @include mq('phone-wide') { padding: 18px 20px; }
+    @include mq('phone-wide') { padding: 20px 20px; }
     @include mq('tablet') { width: 420px; flex-shrink: 0; }
     @include mq('desktop') { width: 460px; }
   }
@@ -77,14 +77,14 @@
   }
 
   &__subtitle {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-text-muted);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   &__options {
     @include flex(column, flex-start, stretch);
-    gap: 10px;
+    gap: 12px;
   }
 
   // ── Option buttons ──────────────────────────────────────────────────────────
@@ -96,7 +96,7 @@
     background: none;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 10px 14px;
+    padding: 12px 16px;
     cursor: pointer;
     text-align: left;
     transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
@@ -104,16 +104,6 @@
     &:hover {
       border-color: var(--color-accent);
       background: var(--color-accent-soft);
-    }
-
-    &--recommended {
-      border-color: var(--color-accent-border-soft);
-      box-shadow: 0 0 0 3px var(--color-accent-soft);
-
-      &:hover {
-        border-color: var(--color-accent);
-        box-shadow: 0 0 0 4px var(--color-accent-soft-strong);
-      }
     }
   }
 
@@ -151,7 +141,7 @@
 
   &__option-name {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-text-primary);
   }
@@ -164,7 +154,7 @@
 
   &__option-arrow {
     color: var(--color-text-muted);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
     flex-shrink: 0;
     transition: color 0.15s ease, transform 0.15s ease;
@@ -172,6 +162,6 @@
 
   &__option:hover &__option-arrow {
     color: var(--color-accent);
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 }

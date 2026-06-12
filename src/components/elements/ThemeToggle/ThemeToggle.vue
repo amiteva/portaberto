@@ -1,8 +1,8 @@
 <template>
   <button
     class="theme-toggle"
-    :aria-label="`Switch theme — current: ${themeStore.preference}`"
-    :title="`Current: ${themeStore.preference} — click to cycle`"
+    :aria-label="`Switch theme, current: ${themeStore.preference}`"
+    :title="`Current: ${themeStore.preference}, click to cycle`"
     @click="themeStore.cycleTheme()"
   >
     <!-- Dark -->

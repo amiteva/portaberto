@@ -21,10 +21,10 @@
 
   &__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 26px;
+    font-size: 28px;
     color: var(--color-text-primary);
     margin-bottom: 0;
-    @include mq('tablet') { font-size: 34px; }
+    @include mq('tablet') { font-size: 36px; }
   }
 
   &__score-row {
@@ -51,7 +51,7 @@
     gap: 2px;
   }
 
-  &__score-total { font-size: 13px; color: var(--color-text-muted); }
+  &__score-total { font-size: 16px; color: var(--color-text-muted); }
 
   // ── Navigation arrows ──────────────────────────────────────────────────────
 
@@ -72,7 +72,7 @@
     color: var(--color-text-primary);
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 
-    svg { width: 18px; height: 18px; }
+    svg { width: 20px; height: 20px; }
 
     &:hover {
       background: var(--color-accent);
@@ -90,12 +90,12 @@
 
   &__track {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    padding: 14px var(--wrapper-spacing-x) 18px;
+    padding: 16px var(--wrapper-spacing-x) 20px;
     scroll-padding-inline: var(--wrapper-spacing-x);
     cursor: grab;
     scrollbar-width: none;
@@ -119,7 +119,7 @@
     background: var(--color-bg-elevated);
     border: 1px solid var(--color-border);
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 20px;
     min-width: min(320px, calc(100vw - (2 * var(--wrapper-spacing-x))));
     max-width: 360px;
     flex-shrink: 0;
@@ -145,13 +145,13 @@
 
   &__reviewer-name {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-text-primary);
     margin: 0;
   }
 
   &__reviewer-date {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-text-muted);
     margin: 0;
   }
@@ -169,15 +169,15 @@
   }
 
   &__star {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     fill: var(--color-border);
 
     &--filled { fill: var(--color-accent); }
   }
 
   &__card-text {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--color-text-secondary);
     margin: 0;

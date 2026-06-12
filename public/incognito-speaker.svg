@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Default speaker profile">
+  <rect width="160" height="160" rx="80" fill="#14213d"/>
+  <circle cx="80" cy="68" r="26" fill="#e5e5e5"/>
+  <path d="M35 132c7.5-25.5 24.2-39 45-39s37.5 13.5 45 39" fill="#e5e5e5"/>
+  <path d="M50 67h60l-7-17H57l-7 17Z" fill="#fca311"/>
+  <rect x="45" y="70" width="70" height="9" rx="4.5" fill="#fca311"/>
+</svg>

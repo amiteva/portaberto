@@ -5,7 +5,7 @@
       <div class="venues-hero__media">
         <img
           src="https://picsum.photos/seed/venuehero/1920/700"
-          alt="Eventus venue spaces"
+          alt="Portaberto venue spaces"
           class="venues-hero__img"
         />
       </div>
@@ -13,7 +13,7 @@
         <h5 class="venues-hero__eyebrow">Premium Spaces</h5>
         <h1 class="venues-hero__title">Our Venues</h1>
         <p class="venues-hero__lead">
-          From intimate boardrooms to grand ballrooms — find the perfect space for your event.
+          From intimate boardrooms to grand ballrooms, find the perfect space for your event.
         </p>
       </div>
     </section>
@@ -32,7 +32,7 @@
 
       <!-- Loading -->
       <div v-if="venuesStore.loading" class="venues-listing__state">
-        <LoadingSpinner size="3rem" />
+        <LoadingSpinner size="48px" />
       </div>
 
       <!-- Error -->
@@ -44,7 +44,7 @@
       <!-- Grid -->
       <ul v-else class="venues-listing__grid">
         <li v-for="venue in venuesStore.venues" :key="venue.id">
-          <VenueCard :venue="venue" @edit="openEdit" />
+          <VenueCard :venue="venue" @edit="openEdit" @delete="deleteVenue" />
         </li>
       </ul>
     </section>
@@ -57,6 +57,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useVenuesStore } from '@/stores/venues'
+import { useEventsStore } from '@/stores/events'
 import VenueCard from '@/components/VenueCard/VenueCard.vue'
 import EditVenueModal from '@/components/EditVenueModal/EditVenueModal.vue'
 import LoadingSpinner from '@/components/elements/LoadingSpinner/LoadingSpinner.vue'
@@ -64,6 +65,7 @@ import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 import { useAuthStore } from '@/stores/auth'
 
 const venuesStore = useVenuesStore()
+const eventsStore = useEventsStore()
 const authStore = useAuthStore()
 
 const editingVenue = ref(null)
@@ -79,7 +81,16 @@ function openCreate() {
   showEditModal.value = true
 }
 
-onMounted(() => venuesStore.load())
+async function deleteVenue(venue) {
+  await eventsStore.load()
+  eventsStore.cancelByVenue(venue)
+  venuesStore.remove(venue.id)
+}
+
+onMounted(() => {
+  venuesStore.load()
+  eventsStore.load()
+})
 </script>
 
 <style lang="scss" scoped>

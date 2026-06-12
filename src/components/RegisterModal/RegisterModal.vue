@@ -120,6 +120,7 @@
 
 <script setup>
 import { ref, reactive, watch } from 'vue'
+import { useBodyScrollLock } from '@/composables/useBodyScrollLock'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 import BaseInput from '@/components/elements/BaseInput/BaseInput.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -131,6 +132,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue'])
+useBodyScrollLock(() => props.modelValue)
 
 const authStore = useAuthStore()
 const bookingsStore = useBookingsStore()
@@ -151,6 +153,7 @@ function validate() {
 }
 
 async function submit() {
+  if (props.event?.status === 'cancelled') return
   if (!validate()) return
   submitting.value = true
   await new Promise((r) => setTimeout(r, 800)) // simulate API call
