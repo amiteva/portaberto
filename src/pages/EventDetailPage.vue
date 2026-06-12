@@ -148,9 +148,9 @@ import { useFavoritesStore } from '@/stores/favorites'
 import { useAuthStore } from '@/stores/auth'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 import LoadingSpinner from '@/components/elements/LoadingSpinner/LoadingSpinner.vue'
-import SpeakerCard from '@/components/events/SpeakerCard/SpeakerCard.vue'
-import RegisterModal from '@/components/events/RegisterModal/RegisterModal.vue'
-import EventAdminModal from '@/components/events/EventAdminModal/EventAdminModal.vue'
+import SpeakerCard from '@/components/SpeakerCard/SpeakerCard.vue'
+import RegisterModal from '@/components/RegisterModal/RegisterModal.vue'
+import EventAdminModal from '@/components/EventAdminModal/EventAdminModal.vue'
 import ImageCarousel from '@/components/elements/ImageCarousel/ImageCarousel.vue'
 
 const route = useRoute()

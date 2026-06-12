@@ -67,9 +67,9 @@ import { useEventsStore } from '@/stores/events'
 import { useFavoritesStore } from '@/stores/favorites'
 import { useAuthStore } from '@/stores/auth'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
-import EventFilters from '@/components/events/EventFilters/EventFilters.vue'
-import EventGrid from '@/components/events/EventGrid/EventGrid.vue'
-import EventAdminModal from '@/components/events/EventAdminModal/EventAdminModal.vue'
+import EventFilters from '@/components/EventFilters/EventFilters.vue'
+import EventGrid from '@/components/EventGrid/EventGrid.vue'
+import EventAdminModal from '@/components/EventAdminModal/EventAdminModal.vue'
 const GoogleReviews = defineAsyncComponent(() => import('@/components/GoogleReviews/GoogleReviews.vue'))
 
 const eventsStore = useEventsStore()

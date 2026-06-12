@@ -49,7 +49,7 @@
 import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
-import EventCard from '@/components/events/EventCard/EventCard.vue'
+import EventCard from '@/components/EventCard/EventCard.vue'
 import LoadingSpinner from '@/components/elements/LoadingSpinner/LoadingSpinner.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useEventsStore } from '@/stores/events'

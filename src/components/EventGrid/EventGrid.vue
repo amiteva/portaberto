@@ -73,7 +73,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import EventCard from '@/components/events/EventCard/EventCard.vue'
+import EventCard from '@/components/EventCard/EventCard.vue'
 import BaseButton from '@/components/elements/BaseButton/BaseButton.vue'
 
 const props = defineProps({
