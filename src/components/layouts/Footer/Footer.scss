@@ -1,0 +1,121 @@
+.footer {
+  background-color: var(--color-header-bg);
+  border-top: 1px solid var(--color-divider-strong);
+  margin-top: auto;
+  overflow: hidden;
+
+  &__inner {
+    @include flex(column, center, center);
+    gap: 0.75rem;
+    padding: 1.2rem var(--wrapper-spacing-x);
+    text-align: center;
+
+    @include mq('tablet-wide') {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 1.5rem;
+      min-height: 5.25rem;
+      text-align: left;
+    }
+  }
+
+  &__contact {
+    @include flex(row, center, center, wrap);
+    gap: 0.35rem 0.65rem;
+    color: var(--color-text-inverse-muted);
+
+    @include mq('tablet-wide') {
+      justify-self: start;
+      justify-content: flex-start;
+    }
+  }
+
+  &__links {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+
+    @include mq('tablet-wide') {
+      justify-self: end;
+      justify-content: flex-end;
+    }
+  }
+
+  &__email,
+  &__link {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-inverse-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+
+    &:hover { color: var(--color-text-inverse); }
+  }
+
+  &__location {
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  &__separator {
+    color: var(--color-accent);
+  }
+
+  &__social {
+    @include flex(row, flex-start, center);
+    gap: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  &__social-link {
+    @include flex();
+    color: var(--color-text-inverse-muted);
+    transition: color 0.15s ease;
+
+    &:hover { color: var(--color-accent); }
+  }
+
+  &__statement {
+    color: color-mix(in srgb, var(--color-text-inverse) 78%, transparent);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    text-align: center;
+
+    @include mq('tablet-wide') {
+      justify-self: center;
+      white-space: nowrap;
+    }
+  }
+
+  &--compact {
+    flex: 0 0 var(--login-footer-height);
+    height: var(--login-footer-height);
+
+    .footer__inner {
+      min-height: 100%;
+      gap: 0.35rem 1rem;
+      padding-top: 0.55rem;
+      padding-bottom: 0.55rem;
+    }
+
+    .footer__email,
+    .footer__location,
+    .footer__link {
+      font-size: 0.75rem;
+    }
+
+    .footer__statement {
+      font-size: 0.875rem;
+    }
+
+    .footer__social-link svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}

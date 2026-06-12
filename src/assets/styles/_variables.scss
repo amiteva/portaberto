@@ -1,0 +1,26 @@
+// ── Brand palette ─────────────────────────────────────────────────────────────
+$midnight-blue:  #07162f;
+$prussian-blue:  #14213d;
+$orange:         #fca311;
+$alabaster-grey: #e5e5e5;
+$white:          #ffffff;
+
+// ── Legacy aliases (used by existing component SCSS) ──────────────────────────
+$clr-dark:  $midnight-blue; // text ON accent backgrounds
+$clr-light: $white; // text ON dark/image backgrounds
+
+$clr-primary-300: $orange;
+$clr-primary-500: #e8910f;
+$clr-primary-700: #c97909;
+
+$clr-secondary-300: #5a6984;
+$clr-secondary-500: $prussian-blue;
+$clr-secondary-700: #0c1528;
+
+$clr-gray-300: $alabaster-grey;
+$clr-gray-500: #a8a8a8;
+$clr-gray-700: #666666;
+$clr-gray-800: #333333;
+$clr-gray-900: $midnight-blue;
+
+$clr-error: #d94f2b;

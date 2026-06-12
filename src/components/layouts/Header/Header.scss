@@ -1,0 +1,210 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  transition: background-color 0.2s ease,
+              box-shadow 0.2s ease,
+              height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--color-header-bg);
+
+  &--scrolled {
+    background-color: var(--color-header-bg-scrolled);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--color-divider-strong);
+  }
+
+  // ── Inner ──────────────────────────────────────────────────────────────────
+
+  &__inner {
+    @include flex(row, space-between, center);
+    height: 4rem;
+    padding: 0 var(--wrapper-spacing-x);
+
+    @include mq('tablet')  { height: 4.5rem; }
+    @include mq('desktop') { height: 5rem; }
+  }
+
+  // ── Logo ───────────────────────────────────────────────────────────────────
+
+  &__logo { @include flex(); text-decoration: none; }
+
+  &__logo-mark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 0.2em;
+    color: var(--color-text-inverse);
+    text-transform: uppercase;
+
+    @include mq('desktop') { font-size: 24px; }
+  }
+
+  // ── Desktop nav ────────────────────────────────────────────────────────────
+
+  &__nav {
+    display: none;
+    height: 100%;
+
+    @include mq('desktop') {
+      @include flex(row, center, center);
+    }
+  }
+
+  &__nav-item {
+    @include flex();
+    height: 100%;
+    padding: 0 1.125rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-inverse-muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover   { color: var(--color-text-inverse); }
+    &--active { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+  }
+
+  // ── Actions ────────────────────────────────────────────────────────────────
+
+  &__actions {
+    @include flex(row, flex-end, center);
+    gap: 0.625rem;
+  }
+
+  &__cta-wrap {
+    display: none;
+    @include mq('desktop') { display: block; }
+  }
+
+  &__user {
+    @include flex(row, flex-start, center);
+    gap: 0.5rem;
+    display: none;
+    @include mq('desktop') { display: flex; }
+  }
+
+  &__user-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent);
+  }
+
+  &__user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-inverse);
+  }
+
+  &__signout {
+    @include flex();
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-inverse-muted);
+    border-radius: 0.25rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    svg { width: 1rem; height: 1rem; }
+    &:hover { color: var(--color-error); background: var(--color-accent-soft); }
+  }
+
+  &__mobile-user {
+    @include flex(row, flex-start, center);
+    gap: 0.75rem;
+  }
+
+  &__mobile-username {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-inverse);
+  }
+
+  &__mobile-signout {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.375rem 0.75rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-inverse-muted);
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover { color: var(--color-error); border-color: var(--color-error); }
+  }
+
+  // ── Burger ────────────────────────────────────────────────────────────────
+
+  &__burger {
+    @include flex(column, center, center);
+    gap: 5px;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.375rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease;
+
+    @include mq('desktop') { display: none; }
+    &:hover { background-color: var(--color-interactive-soft); }
+  }
+
+  &__burger-line {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background-color: var(--color-text-inverse);
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &--open-1 { transform: translateY(6.5px) rotate(45deg); }
+    &--open-2 { opacity: 0; }
+    &--open-3 { transform: translateY(-6.5px) rotate(-45deg); }
+  }
+
+  // ── Mobile menu ────────────────────────────────────────────────────────────
+
+  &__mobile-menu {
+    @include flex(column, flex-start, stretch);
+    background-color: var(--color-header-bg);
+    border-top: 1px solid var(--color-divider-strong);
+    padding: 0.5rem var(--wrapper-spacing-x) 1.25rem;
+
+    @include mq('desktop') { display: none; }
+  }
+
+  &__mobile-item {
+    padding: 1rem 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-inverse-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-divider-strong);
+    transition: color 0.15s ease;
+
+    &:hover   { color: var(--color-text-inverse); }
+    &--active { color: var(--color-accent); }
+  }
+
+  &__mobile-bottom {
+    @include flex(row, space-between, center);
+    padding-top: 1rem;
+  }
+}

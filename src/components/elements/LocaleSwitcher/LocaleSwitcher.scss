@@ -1,0 +1,109 @@
+.locale-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 5;
+}
+
+.locale-switcher__button {
+  @include flex(row, center, center);
+  gap: 0.45rem;
+  min-width: 4.75rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-header-bg) 88%, var(--color-text-inverse) 12%);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0.85rem;
+  text-transform: uppercase;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover,
+  &--open {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+  }
+
+  &--open svg {
+    transform: rotate(180deg);
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid var(--color-accent);
+    outline-offset: 0.125rem;
+  }
+}
+
+.locale-switcher__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 11rem;
+  padding: 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-modal);
+}
+
+.locale-switcher__option {
+  @include flex(row, flex-start, center);
+  gap: 0.65rem;
+  width: 100%;
+  border: 0;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--color-text-inverse-muted);
+  cursor: pointer;
+  padding: 0.625rem 0.7rem;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover,
+  &:focus-visible,
+  &--active {
+    background: var(--color-accent-soft);
+    color: var(--color-text-inverse);
+    outline: none;
+  }
+}
+
+.locale-switcher__option-code {
+  @include flex();
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.locale-switcher__option-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.locale-menu-enter-active,
+.locale-menu-leave-active {
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.locale-menu-enter-from,
+.locale-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-0.25rem);
+}

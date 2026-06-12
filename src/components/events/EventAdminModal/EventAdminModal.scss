@@ -1,0 +1,113 @@
+.event-admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--color-overlay);
+  @include flex(column, center, center);
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.event-admin-modal {
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--color-bg-surface);
+  border-radius: 4px;
+  box-shadow: var(--shadow-modal);
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    @include flex();
+    width: 2.25rem;
+    height: 2.25rem;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    z-index: 1;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    svg { width: 1.25rem; height: 1.25rem; }
+    &:hover { color: var(--color-text-primary); background-color: var(--color-bg-elevated); }
+  }
+
+  &__header {
+    @include flex(column, flex-start, flex-start);
+    gap: 0.5rem;
+    padding: 2rem 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  &__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    color: var(--color-text-primary);
+  }
+
+  &__body {
+    @include flex(column, flex-start, stretch);
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @include mq('tablet-small') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__field-group {
+    @include flex(column, flex-start, flex-start);
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  &__label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+
+  &__select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--color-input-bg, var(--color-bg-elevated));
+    border: 2px solid var(--color-border);
+    border-radius: 0.25rem;
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+
+    &:focus { border-color: var(--color-accent); }
+  }
+
+  &__actions {
+    @include flex(row, flex-end, center);
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+}

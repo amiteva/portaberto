@@ -1,0 +1,117 @@
+.venue-card {
+  @include flex(column, flex-start, stretch);
+  background-color: var(--color-card-bg);
+  height: 100%;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+
+    .venue-card__img { transform: scale(1.04); }
+  }
+
+  // ── Media ─────────────────────────────────────────────────────────────────
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    flex-shrink: 0;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: slideAndFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__type {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-text);
+    background-color: var(--color-accent);
+    padding: 0.25rem 0.625rem;
+    border-radius: 62.5rem;
+  }
+
+  // ── Body ──────────────────────────────────────────────────────────────────
+
+  &__body {
+    @include flex(column, space-between, flex-start);
+    padding: 16px;
+    flex: 1;
+    gap: 16px;
+  }
+
+  &__info {
+    @include flex(column, flex-start, flex-start);
+    gap: 12px;
+    width: 100%;
+  }
+
+  &__name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__meta {
+    @include flex(column, flex-start, flex-start);
+    gap: 4px;
+  }
+
+  &__meta-item {
+    @include flex(row, flex-start, center);
+    gap: 0.5rem;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+
+    svg { width: 0.9rem; height: 0.9rem; flex-shrink: 0; color: var(--color-accent); }
+    strong { color: var(--color-text-primary); font-family: 'Inter', system-ui, sans-serif; font-weight: 600; }
+  }
+
+  &__amenities {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  &__amenity {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--color-border);
+    border-radius: 62.5rem;
+  }
+
+  &__cta-wrap { width: 100%; }
+
+  &__admin-actions {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+  }
+}

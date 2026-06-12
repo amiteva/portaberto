@@ -1,0 +1,189 @@
+.reviews {
+  background-color: var(--color-bg-surface);
+  padding: 40px 0 44px;
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+
+  @include mq('desktop') { padding: 52px 0 56px; }
+
+  &__header {
+    padding: 0 var(--wrapper-spacing-x);
+    margin-bottom: 20px;
+    @include flex(row, space-between, flex-end);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__summary {
+    @include flex(column, flex-start, flex-start);
+    gap: 12px;
+  }
+
+  &__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    color: var(--color-text-primary);
+    margin-bottom: 0;
+    @include mq('tablet') { font-size: 34px; }
+  }
+
+  &__score-row {
+    @include flex(row, flex-start, center);
+    gap: 12px;
+  }
+
+  &__google-logo { width: 32px; height: 32px; flex-shrink: 0; }
+
+  &__score {
+    @include flex(column, flex-start, flex-start);
+    gap: 4px;
+  }
+
+  &__score-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  &__stars {
+    @include flex(row, flex-start, center);
+    gap: 2px;
+  }
+
+  &__score-total { font-size: 13px; color: var(--color-text-muted); }
+
+  // ── Navigation arrows ──────────────────────────────────────────────────────
+
+  &__nav {
+    @include flex(row, flex-end, center);
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__nav-btn {
+    @include flex();
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    svg { width: 18px; height: 18px; }
+
+    &:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-accent-text);
+    }
+
+    &--disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+  }
+
+  // ── Scrollable track ───────────────────────────────────────────────────────
+
+  &__track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding: 14px var(--wrapper-spacing-x) 18px;
+    scroll-padding-inline: var(--wrapper-spacing-x);
+    cursor: grab;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__track--dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+
+  // ── Review card ───────────────────────────────────────────────────────────
+
+  &__card {
+    @include flex(column, flex-start, flex-start);
+    gap: 12px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    padding: 20px;
+    border-radius: 16px;
+    min-width: min(320px, calc(100vw - (2 * var(--wrapper-spacing-x))));
+    max-width: 360px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    box-shadow: var(--shadow-card);
+
+    @include mq('tablet') { min-width: 300px; }
+  }
+
+  &__card-header {
+    @include flex(row, flex-start, center);
+    gap: 12px;
+    width: 100%;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  &__reviewer-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  &__reviewer-date {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  &__card-logo {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  &__card-stars {
+    @include flex(row, flex-start, center);
+    gap: 2px;
+  }
+
+  &__star {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-border);
+
+    &--filled { fill: var(--color-accent); }
+  }
+
+  &__card-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

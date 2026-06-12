@@ -1,0 +1,153 @@
+.event-grid {
+  padding: 2rem var(--wrapper-spacing-x) 3rem;
+
+  @include mq('desktop') { padding-top: 2.5rem; padding-bottom: 4rem; }
+
+  // ── State containers ──────────────────────────────────────────────────────
+
+  &__state {
+    @include flex(column, center, center);
+    min-height: 20rem;
+    gap: 1.5rem;
+    text-align: center;
+
+    p { color: var(--color-text-secondary); }
+
+    &--error p { color: var(--color-error); }
+    &--empty p { color: var(--color-text-muted); }
+  }
+
+  // ── Count ─────────────────────────────────────────────────────────────────
+
+  &__count {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+
+    strong { color: var(--color-text-primary); }
+  }
+
+  // ── Grid ──────────────────────────────────────────────────────────────────
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include mq('tablet-small') { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @include mq('desktop')      { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    @include mq('tv')           { grid-template-columns: repeat(4, 1fr); }
+
+    li { height: 100%; }
+  }
+
+  // ── Skeleton ──────────────────────────────────────────────────────────────
+
+  &__skeleton-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    width: 100%;
+
+    @include mq('tablet-small') { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @include mq('desktop')      { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    @include mq('tv')           { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  &__skeleton {
+    background-color: var(--color-card-bg);
+    overflow: hidden;
+  }
+
+  &__skeleton-img {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-elevated) 25%,
+      var(--color-border) 50%,
+      var(--color-bg-elevated) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease infinite;
+  }
+
+  &__skeleton-body {
+    @include flex(column, flex-start, flex-start);
+    gap: 0.625rem;
+    padding: 1.25rem 1rem;
+  }
+
+  &__skeleton-line {
+    height: 0.875rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-elevated) 25%,
+      var(--color-border) 50%,
+      var(--color-bg-elevated) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease infinite;
+
+    &--title { height: 1rem; width: 80%; }
+    &--short { width: 55%; }
+  }
+
+  // ── Pagination ────────────────────────────────────────────────────────────
+
+  &__pagination {
+    @include flex(row, center, center);
+    gap: 0.375rem;
+    margin-top: 2.5rem;
+  }
+
+  &__page-btn {
+    @include flex();
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    svg { width: 1rem; height: 1rem; }
+
+    &:hover:not(:disabled) { border-color: var(--color-accent); color: var(--color-accent); }
+    &:disabled { opacity: 0.35; cursor: not-allowed; }
+  }
+
+  &__page-num {
+    @include flex();
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover:not(&--active) { border-color: var(--color-accent); color: var(--color-accent); }
+
+    &--active {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-accent-text);
+      cursor: default;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

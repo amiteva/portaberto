@@ -1,0 +1,143 @@
+.filters {
+  @include flex(column, flex-start, stretch);
+  gap: 12px;
+  padding: 20px var(--wrapper-spacing-x);
+  background-color: var(--color-bg-base);
+
+  @include mq('tablet-wide') {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+  }
+
+  // ── Search ────────────────────────────────────────────────────────────────
+
+  &__search {
+    position: relative;
+    @include flex(row, flex-start, center);
+    flex: 1;
+    max-width: 100%;
+
+    @include mq('tablet-wide') { max-width: 20rem; }
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: 0.875rem;
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+    border-radius: 62.5rem;
+    border: 1.5px solid var(--color-border);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    -webkit-appearance: none;
+
+    &:focus   { border-color: var(--color-accent); }
+    &::placeholder { color: var(--color-text-muted); }
+
+    // Remove native search clear
+    &::-webkit-search-cancel-button { -webkit-appearance: none; }
+  }
+
+  &__search-clear {
+    position: absolute;
+    right: 0.75rem;
+    @include flex();
+    width: 1.25rem;
+    height: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 0;
+    transition: color 0.15s ease;
+
+    svg { width: 1rem; height: 1rem; }
+    &:hover { color: var(--color-text-primary); }
+  }
+
+  // ── Categories ────────────────────────────────────────────────────────────
+
+  &__categories {
+    @include flex(row, flex-start, center);
+    gap: 0.375rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  &__cat-btn {
+    padding: 0.375rem 0.875rem;
+    border-radius: 62.5rem;
+    border: 1.5px solid var(--color-border);
+    background: transparent;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    &--active {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-accent-text);
+    }
+
+    &:focus-visible {
+      outline: 0.125rem solid var(--color-accent);
+      outline-offset: 0.125rem;
+    }
+  }
+
+  // ── Sort ──────────────────────────────────────────────────────────────────
+
+  &__sort {
+    @include flex(row, flex-start, center);
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+
+  &__sort-label {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  &__sort-select {
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    border: 1.5px solid var(--color-border);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23707070' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1rem;
+    transition: border-color 0.2s ease;
+
+    &:focus { border-color: var(--color-accent); }
+  }
+}

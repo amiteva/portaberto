@@ -1,0 +1,438 @@
+// Fonts loaded via Google Fonts in index.html
+
+// Palette: $midnight-blue #07162f · $prussian-blue #14213d · $orange #fca311 ·
+//          $alabaster-grey #e5e5e5 · $white #ffffff
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg-base: #07162f;
+  --color-bg-surface: #14213d;
+  --color-bg-elevated: #20304f;
+  --color-surface-strong: #0b1221;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e5e5e5;
+  --color-text-muted: #b6bdca;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: #e5e5e5;
+  --color-border: #e5e5e526;
+  --color-divider-strong: #e5e5e51a;
+  --color-accent: #fca311;
+  --color-accent-hover: #ffb536;
+  --color-accent-active: #d98208;
+  --color-accent-text: #07162f;
+  --color-accent-soft: #fca31114;
+  --color-accent-soft-strong: #fca31126;
+  --color-accent-border-soft: #fca31155;
+  --color-card-bg: #14213d;
+  --color-input-bg: #20304f;
+  --color-input-label: #c8ced8;
+  --color-error: #ff7a59;
+  --color-overlay: #07162fd9;
+  --color-overlay-soft: #14213da8;
+  --color-header-bg: #07162f;
+  --color-header-bg-scrolled: #07162ff2;
+  --color-interactive-soft: #e5e5e51a;
+  --shadow-card: 0 12px 32px #07162f55;
+  --shadow-modal: 0 16px 56px #07162f73;
+
+  --cta-bg-base: #fca311;
+  --cta-bg-hover: #ffb536;
+  --cta-bg-active: #d98208;
+  --cta-text: #07162f;
+  --cta-bg-base-outlined-hover: #fca3111c;
+  --cta-bg-base-outlined-active: #fca31130;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg-base: #e5e5e5;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #f4f4f4;
+  --color-surface-strong: #14213d;
+  --color-text-primary: #07162f;
+  --color-text-secondary: #14213d;
+  --color-text-muted: #5d6676;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: #e5e5e5;
+  --color-border: #14213d1f;
+  --color-divider-strong: #14213d14;
+  --color-accent: #fca311;
+  --color-accent-hover: #e8910f;
+  --color-accent-active: #c97909;
+  --color-accent-text: #07162f;
+  --color-accent-soft: #fca31114;
+  --color-accent-soft-strong: #fca31124;
+  --color-accent-border-soft: #fca3114a;
+  --color-card-bg: #ffffff;
+  --color-input-bg: #ffffff;
+  --color-input-label: #5d6676;
+  --color-error: #d94f2b;
+  --color-overlay: #07162fb8;
+  --color-overlay-soft: #14213d85;
+  --color-header-bg: #07162f;
+  --color-header-bg-scrolled: #07162ff2;
+  --color-interactive-soft: #14213d12;
+  --shadow-card: 0 8px 24px #14213d18;
+  --shadow-modal: 0 12px 36px #14213d2e;
+
+  --cta-bg-base: #fca311;
+  --cta-bg-hover: #e8910f;
+  --cta-bg-active: #c97909;
+  --cta-text: #07162f;
+  --cta-bg-base-outlined-hover: #fca3111a;
+  --cta-bg-base-outlined-active: #fca31133;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-base);
+
+  --wrapper-spacing-x: 1rem;
+  @include mq("tablet-small") {
+    --wrapper-spacing-x: 1.5rem;
+  }
+  @include mq("tablet") {
+    --wrapper-spacing-x: 2.5rem;
+  }
+  @include mq("tablet-wide") {
+    --wrapper-spacing-x: 1.75rem;
+  }
+  @include mq("desktop") {
+    --wrapper-spacing-x: 2rem;
+  }
+  @include mq("desktop-wide") {
+    --wrapper-spacing-x: 2.5rem;
+  }
+  @include mq("desktop-wide-helper") {
+    --wrapper-spacing-x: 3rem;
+  }
+  @include mq("tv") {
+    --wrapper-spacing-x: 4rem;
+  }
+
+  --login-footer-height: 9rem;
+  @include mq("tablet") {
+    --login-footer-height: 7rem;
+  }
+  @include mq("tablet-wide") {
+    --login-footer-height: 5.75rem;
+  }
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  --body-padding-top: 4rem;
+  @include mq("tablet") {
+    --body-padding-top: 4.5rem;
+  }
+  @include mq("desktop") {
+    --body-padding-top: 5rem;
+  }
+  padding-top: var(--body-padding-top);
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: var(--wrapper-spacing-x);
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+.skip-target {
+  position: absolute;
+  top: var(--body-padding-top);
+}
+
+body.is-login-route {
+  overflow: hidden;
+
+  #app {
+    height: calc(100vh - var(--body-padding-top));
+    height: calc(100dvh - var(--body-padding-top));
+    min-height: calc(100vh - var(--body-padding-top));
+    min-height: calc(100dvh - var(--body-padding-top));
+    overflow: hidden;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+button,
+a {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+h5,
+h6 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// ─── Typography scale ─────────────────────────────────────────────────────────
+
+h1,
+h2 {
+  font-size: 38px;
+  line-height: 46px;
+}
+h3 {
+  font-size: 30px;
+  line-height: 38px;
+}
+h4 {
+  font-size: 24px;
+  line-height: 32px;
+}
+h5 {
+  font-size: 20px;
+  line-height: 28px;
+}
+h6 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+@include mq("phone") {
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+@include mq("tablet") {
+  h1 {
+    font-size: 68px;
+    line-height: 80px;
+  }
+  h2 {
+    font-size: 50px;
+    line-height: 62px;
+  }
+  h3 {
+    font-size: 38px;
+    line-height: 48px;
+  }
+  h4 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  h5 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+
+@include mq("desktop") {
+  h1 {
+    font-size: 88px;
+    line-height: 102px;
+  }
+  h2 {
+    font-size: 68px;
+    line-height: 80px;
+  }
+  h3 {
+    font-size: 52px;
+    line-height: 64px;
+  }
+  h4 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  h5 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  h6 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+@include mq("desktop-wide-helper") {
+  h1 {
+    font-size: 104px;
+    line-height: 120px;
+  }
+  h2 {
+    font-size: 88px;
+    line-height: 102px;
+  }
+  h3 {
+    font-size: 72px;
+    line-height: 84px;
+  }
+}
+
+p,
+input,
+textarea,
+li {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+// ─── Utilities ────────────────────────────────────────────────────────────────
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ─── Vue transitions ──────────────────────────────────────────────────────────
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-down-enter-from,
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+// ─── Keyframes ────────────────────────────────────────────────────────────────
+
+@keyframes slideAndFadeIn {
+  from {
+    opacity: 0.15;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInText {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

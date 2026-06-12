@@ -1,0 +1,33 @@
+.spinner {
+  @include flex(column, center, center);
+  gap: 1rem;
+  width: var(--size, 2.5rem);
+  height: var(--size, 2.5rem);
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__track {
+    stroke: var(--color-border);
+  }
+
+  &__arc {
+    stroke: var(--color-accent);
+    stroke-dasharray: 80 45;
+  }
+
+  &__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
